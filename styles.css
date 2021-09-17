@@ -1,5 +1,5 @@
 body{
-    background-color: #1F2229;
+    background-color: #1f2229;
 }
 
 h1{
@@ -32,4 +32,8 @@ h1{
     width: 300px;
     height: 40px;
     font-size: 30;
+}
+.pil{
+    height: 50px;
+    color:#FFF;
 }
