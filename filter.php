@@ -2,9 +2,10 @@
 <html>
     <head>
         <title>Næringsmegleren</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>Næringsmegleren Sædberg & Hodne</h1><br>
+        <img src="bilder/naring.png" alt="logo">
         <h2> Filtrer</h2>
 
         <form method="post" action="">
@@ -74,7 +75,7 @@
             <input type="submit" name="registrer" value="Registrér">
         </form>
 
-
+        <a href="index.php">Tilbake</a>
 
     </body>
 </html>
