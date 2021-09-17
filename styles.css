@@ -6,20 +6,24 @@ h1{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
-.img{
-    height: 20px;
-    width: 20px;
+.logo{
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    
 }
 .box{
     position: absolute;
     padding: 40px;
-    width:600px;
-    height: 300px;
+    width:700px;
+    height: 350px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
-    background: #295E63;
+    background: #292963;
     border-radius: 15px;
 }
 .box input[type="text"]{
@@ -29,7 +33,22 @@ h1{
     margin: 20px auto;
     text-align: center;
     border-radius: 5px;
-    width: 300px;
-    height: 40px;
-    font-size: 30;
+    width: 350px;
+    height: 50px;
+    font-size: large;
+    
+}
+.box input[type="submit"]{
+    border: 0;
+    background: #6CBADC;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+    font-size: large;
+}
+.filter{
+    background: #1F2229;
 }
