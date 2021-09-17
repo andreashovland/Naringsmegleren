@@ -1,5 +1,5 @@
 body{
-    background-color: #1F2229;
+    background-color: #1f2229;
 }
 
 h1{
@@ -49,6 +49,9 @@ h1{
     height: 50px;
     font-size: large;
 }
-.filter{
-    background: #1F2229;
+
+.pil{
+    height: 50px;
+    color:#FFF;
 }
+
