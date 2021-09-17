@@ -5,8 +5,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <img src="bilder/naring.png" alt="logo">
-        <h1>Næringsmegleren Sædberg & Hodne</h1>
+        <img src="bilder/logo_senter_hvit.png" alt="logo">
 
         <div class="box">
 
