@@ -8,6 +8,17 @@
         <img src="bilder/naring.png" alt="logo">
         <h2> Filtrer</h2>
 
+        <?php
+    include('test.php');
+
+    echo "Område: " . "<br>";
+    echo area();
+    echo "<br>" . "Bransje: " . "<br>";
+    echo bransje();
+    echo "<br>" . "Status: " . "<br>";
+    echo status();
+
+        ?>
         <form method="post" action="">
             Område: <select id = "area" name="area">
                 <option value="Select">Velg et område...</option>
