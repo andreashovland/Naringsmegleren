@@ -13,10 +13,9 @@
                 <input type="text" name="søk" placeholder="Søk">
                 <input type="submit" value="Søk" name="søkeknapp">
             </form><br>
-
-            <form action="filter.php" method="POST" id="form2">
-                <input type="submit" value="Filter" name="filter">
-            </form>
+            <a href="filter.php" style="text-decoration: none;">
+            <button class="filter">Filter</button>
+            </a>
         </div>
     </body>
 </html>
