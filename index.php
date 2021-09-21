@@ -5,8 +5,10 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <img src="bilder/logo_senter_hvit.png" class="logo">
-
+        <div class="header">
+            <img src="bilder/logo_senter_hvit.png" class="logo">
+        </div>
+        
         <div class="box">
 
             <form action="resultat.php" method="get" id="form1">
