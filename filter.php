@@ -10,9 +10,10 @@
 
 
         <form method="post" action="result.php">
-        <?php /*
-    include('test.php');
+        <?php 
+    include('dropdown.php');
 
+/*
     echo "Område: " . "<br>";
     echo area();
     echo "<br>" . "Bransje: " . "<br>";
@@ -26,7 +27,7 @@
             Postnummer: 
                 <input type="text" name="postnr" placeholder="Postnummer"><br><br>
 
-
+<!--
             Antall ansatte: 
                 <select id = "ansatte" name="ansatte">
                 <option value="Bygg"> Mindre enn 10</option>
@@ -35,6 +36,12 @@
                 <option value="Fkontrakt">30-40</option>
                 <option value="fåansatte">40+</option>
                 </select><br><br>
+-->
+            Antall ansatte: <br>
+            Min.:
+                <input type="text" name="antallansattmin" placeholder="Minimum antall ansatte"><br><br>
+            Maks.:
+                <input type="text" name="antallansattmaks" placeholder="Maksimum antall ansatte"><br><br>
 
             Siste adr. endring: 
                 <input type="text" name="endring" placeholder="Siste adresse endring"><br><br>
