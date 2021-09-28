@@ -11,7 +11,7 @@
 
         <div class="box">
 
-            <form method="post" id="form1" action="test3.php">
+            <form method="post" id="form1" action="search.php">
                 <input type="text" name="search" placeholder="Søk">
                 <input type="submit" value="Søk" name="searchbutton">
             </form><br>
