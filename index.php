@@ -22,30 +22,3 @@
     </body>
 </html>
 
-<?php
-
-include('config.php');
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-$sql = "SELECT firmaNavn, adresse, antallAnsatte, bransjeDetalj FROM firma";
-$result = $conn->query($conn, $sql);
-$queryResults = mysqli_num_rows($result);
-
-if ($queryResults > 0) {
-    while ($row = mysqli_fetch_assoc($result)){
-        echo "<table><tr>
-        <th>Firma</th>
-        <th>Adresse</th>
-        <th>Antall ansatte</th>
-        <th>Bransje</th>
-        </tr>
-        <tr>
-        <td>" .$row['firmaNavn']. "</td>
-        <td>" .$row['adresse']. "</td>
-        <td>" .$row['antallAnsatte']. "</td>
-        <td>" .$row['bransjeDetalj']. "</td>
-        </tr></table>";
-    }
-}
-?>
