@@ -11,9 +11,9 @@
 
         <div class="box">
 
-            <form method="post" id="form1">
-                <input type="text" name="søk" placeholder="Søk">
-                <input type="submit" value="Søk" name="søkeknapp">
+            <form method="post" id="form1" action="test3.php">
+                <input type="text" name="search" placeholder="Søk">
+                <input type="submit" value="Søk" name="searchbutton">
             </form><br>
             <a href="filter.php" style="text-decoration: none;">
             <button class="filter">Filter</button>
@@ -21,4 +21,5 @@
         </div>
     </body>
 </html>
+
 
