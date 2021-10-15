@@ -25,22 +25,35 @@ if(isset($_REQUEST['filterbutton'])){
         echo "Connection failed: " . $con->connect_error;
     } else {
 
+        echo "Område: " . $lokasjonValue . "<br>";
+        echo "Postnummer: " . $postnummerValue . "<br>";
+        echo "Bransje: " . $bransjeValue . "<br>";
+        echo "Status: " . $statusValue . "<br>";
+        echo "Min ansatte: " . $minAnsatteValue . "<br>";
+        echo "Max ansatte: " . $maxAnsatteValue . "<br>";
+        echo "Siste adresseendring: " . $adrEndringValue . "<br>";
+        echo "Min omsetning: " . $minOmsetningValue . "<br>";
+        echo "Max omsetning: " . $maxOmsetningValue . "<br>";
+        echo "Next?: " . $nextValue . "<br>"; 
+        
+        
         $sql = "SELECT firmaNavn, antallAnsatte, kontaktPerson, kommentarDetalj, fornavn, status
             FROM firma
-            LEFT JOIN kontaktinfo
+            JOIN kontaktinfo
             ON kontaktinfo.orgNum=firma.orgNum
-            LEFT JOIN firmakommentar
+            JOIN firmakommentar
             ON firmakommentar.orgNum=firma.orgNum
-            LEFT JOIN status
+            JOIN status
             ON status.statusId=firmakommentar.statusId
-            LEFT JOIN ansatte
+            JOIN ansatte
             ON ansatte.ansattId=firmakommentar.ansattId
-            LEFT JOIN lokasjon 
+            JOIN lokasjon 
             ON lokasjon.lokasjonId=firma.lokasjonId
-            LEFT JOIN bransje
+            JOIN bransje
             ON bransje.bransjeId=firma.bransjeId
-            WHERE lokasjon LIKE '%$lokasjonValue%' and status LIKE '%$statusValue%' and antallAnsatte >= '%$minValue%'";
-
+            WHERE lokasjon LIKE '%$lokasjonValue%' and postnummer LIKE '%$postnummerValue%' and status LIKE '%$statusValue%' 
+            and antallAnsatte >= $minAnsatteValue and antallAnsatte <= $maxAnsatteValue and siste_adr_endr >= $adrEndringValue
+            and omsetning >= $minOmsetningValue and omsetning <= $maxOmsetningValue and next LIKE '%$nextValue%'";
 
         $result = $con->query($sql);
             echo "<div class='container'>
