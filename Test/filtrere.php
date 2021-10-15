@@ -1,3 +1,10 @@
+<html>
+<head>
+        <title>Næringsmegleren</title>
+        
+    </head>
+<body>
+
 <?php
     $con = mysqli_connect("localhost", "root", "", "Næringsmegleren");
 
@@ -8,12 +15,13 @@
     $bransjeSet = $con->query("SELECT bransje FROM bransje");
 ?>
 
-<div class="filter">
+<div class="filtere">
 <form method="post" action="filterresultat.php">
 
         <!-- Område -->
         <label for="område">Område</label>
         <select name="område">
+            <option></option>
             <?php
                 while ($rows = $lokasjonSet->fetch_assoc()){
                     $lokasjon = $rows['lokasjon'];
@@ -29,6 +37,7 @@
         <!-- Bransje -->
         <label for="bransje">Bransje</label>
         <select name="bransje">
+            <option></option>
             <?php
                 while ($rows = $bransjeSet->fetch_assoc()){
                     $bransje = $rows['bransje'];
@@ -40,6 +49,7 @@
         <!-- Status -->
         <label for="status">Status</label>
         <select name="status">
+            <option></option>
             <?php
                 while ($rows = $statusSet->fetch_assoc()){
                     $status = $rows['status'];
@@ -74,7 +84,8 @@
         <br><input type="submit" value="Filtrer" name="filterbutton">
 </form>
 </div>
-
+</body>
+</html>
 <?php
 /*
 $sql = "SELECT firmaNavn, antallAnsatte, kontaktPerson, kommentarDetalj, fornavn, status
