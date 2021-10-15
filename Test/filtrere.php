@@ -15,8 +15,10 @@
     $bransjeSet = $con->query("SELECT bransje FROM bransje");
 ?>
 
+
 <div class="filtere">
 <form method="post" action="filterresultat.php">
+
 
         <!-- Område -->
         <label for="område">Område</label>

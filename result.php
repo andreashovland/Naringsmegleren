@@ -19,13 +19,13 @@ if ($conn->connect_error) {
                 JOIN firma_kommentar ON firma_kommentar.org_num=firma.org_num
                 JOIN status ON status.status_id=firma_kommentar.status_id
                 JOIN ansatte ON ansatte.ansatt_id=firma_kommentar.ansatt_id
-                WHERE antall_ansatte >" . $_REQUEST['antallansattmaks'] . "
+                WHERE antall_ansatte >" . $_REQUEST['antallansattmin'] . "
                 OR antall_ansatte <" . $_REQUEST['antallansattmaks'] . "
                 OR postnummer LIKE '%" . $_REQUEST['postnr'] . "%'";
 
 
 
-$sql= "SELECT firma_navn, antall_ansatte FROM firma WHERE postnummer LIKE '%$postnummer%'"; //You don't need a ; like you do in SQL
+//$sql= "SELECT firma_navn, antall_ansatte FROM firma WHERE postnummer LIKE '%$postnummer%'"; //You don't need a ; like you do in SQL
 
 
 
