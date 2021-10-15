@@ -9,7 +9,7 @@
 ?>
 
 <div class="filter">
-<form method="post" action="filterresultat.php">
+<form method="post" action="rikketest.php">
 
         <!-- Område -->
         <label for="område">Område</label>
