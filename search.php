@@ -9,12 +9,12 @@
 
     if(isset($_REQUEST['searchbutton'])){
         $searchValue = $_REQUEST['search'];
-        $con = new mysqli("localhost", "root", "", "Næringsmegleren");
+        $con = new mysqli("localhost", "root", "", "NæringsmeglerenDB");
 
         if ($con->connect_error) {
             echo "Connection failed: " . $con->connect_error;
         } else {
-            $sql = "SELECT firmaNavn, antallAnsatte, kontaktPerson, kommentarDetalj, fornavn, status
+            $sql = "SELECT firmaNavn, antallAnsatte, kontaktPerson, kommentar, fornavn, status
             FROM firma
             JOIN kontaktinfo
             ON kontaktinfo.orgNum=firma.orgNum

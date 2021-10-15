@@ -25,24 +25,65 @@
 
     $wherequery = array();
 
+        if (!empty($lokasjonValue)) {
+            $wherequery[] = "lokasjon LIKE '%$lokasjonValue%'";
+        }
+
         if (!empty($postnummerValue)) {
             $wherequery[] = "postnummer = $postnummerValue";
         }
 
-        if (!empty($minAnsatteValue)){
-            $wherequery[] = "antall_ansatte >= $minAnsatteValue";
+        if (!empty($bransjeValue)){
+            $wherequery[] = "bransje LIKE '%$bransjeValue%'";
         }
 
         if (!empty($statusValue)){
-            $wherequery[] = "antall_ansatte >= $statusValue";
+            $wherequery[] = "status LIKE '%$statusValue%'";
+        }
+
+        if (!empty($minAnsatteValue)){
+            $wherequery[] = "antallAnsatte >= $minAnsatteValue";
+        }
+
+        if (!empty($maxAnsatteValue)){
+            $wherequery[] = "antallAnsatte <= $maxAnsatteValue";
+        }
+
+        if (!empty($adrEndringValue)){
+            $wherequery[] = "siste_adr_endr <= $adrEndringValue";
+        }
+
+        if (!empty($minOmsetningValue)){
+            $wherequery[] = "omsetning >= $minOmsetningValue";
+        }
+
+        if (!empty($maxOmsetningValue)){
+            $wherequery[] = "omsetning <= $maxOmsetningValue";
+        }
+
+        if (!empty($nextValue)){
+            $wherequery[] = "next LIKE '%$nextValue%'";
         }
 
 
-        if ($con->connect_error) {
-            echo "Connection failed: " . $con->connect_error;
+        if ($conn->connect_error) {
+            echo "Connection failed: " . $conn->connect_error;
         } else {
 
-        $query = "select * from firma where " . join(' and ', $wherequery);
+        $query = "select firmaNavn, antallAnsatte, kontaktPerson, kommentarDetalj, fornavn, status
+        FROM firma
+        JOIN kontaktinfo
+        ON kontaktinfo.orgNum=firma.orgNum
+        JOIN firmakommentar
+        ON firmakommentar.orgNum=firma.orgNum
+        JOIN status
+        ON status.statusId=firmakommentar.statusId
+        JOIN ansatte
+        ON ansatte.ansattId=firmakommentar.ansattId
+        JOIN lokasjon 
+        ON lokasjon.lokasjonId=firma.lokasjonId
+        JOIN bransje
+        ON bransje.bransjeId=firma.bransjeId where " . join(' and ', $wherequery);
 
         print_r($wherequery) . "<br>";
         echo $query;
@@ -53,14 +94,12 @@
         echo "<div class='container'>
             <table>
             <tr>
-            <th>Organisasjonsnummer</th>
             <th>Firmanavn</th>
-            <th>Adresse</th>
-            <th>Lokasjon ID</th>
+            <th>Kontaktperson</th>
             <th>Antall ansatte</th>
-            <th>Bransje ID</th>
-            <th>Bransje Detalj</th>
-            <th>Postnummer</th>
+            <th>Status</th>
+            <th>Vår kontaktperson</th>
+            <th>Kommentar</th>
             <th></th>
             <th></th>
             </tr>";
@@ -68,14 +107,12 @@
             while ($row = $result->fetch_assoc()){
 
                 echo "<tr>
-                <td>" . $row['org_num'] . "</td>
-                <td>" . $row['firma_navn'] . "</td>
-                <td>" . $row['adresse'] . "</td>
-                <td>" . $row['lokasjon_id'] . "</td>
-                <td>" . $row['antall_ansatte'] . "</td>
-                <td>" . $row['bransje_id'] . "</td> 
-                <td>" . $row['bransje_detalj'] . "</td>
-                <td>" . $row['postnummer'] . "</td>
+                <td>" . $row['firmaNavn'] . "</td>
+                <td>" . $row['kontaktPerson'] . "</td>
+                <td>" . $row['antallAnsatte'] . "</td> 
+                <td>" . $row['status'] . "</td>
+                <td>" . $row['fornavn'] . "</td>
+                <td>" . $row['kommentarDetalj'] . "</td>
                 <td><button class='visMer'>Vis mer</button></td>
                 <td><button class='rediger'>Rediger</button></td>
                 </tr></div>";

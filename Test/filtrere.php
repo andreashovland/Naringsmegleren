@@ -17,7 +17,7 @@
 
 
 <div class="filtere">
-<form method="post" action="filterresultat.php">
+<form method="post" action="rikketest.php">
 
 
         <!-- Område -->
