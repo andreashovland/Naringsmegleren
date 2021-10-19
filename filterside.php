@@ -7,7 +7,6 @@
 
 <?php
     include("config.php");
-    //$conn = mysqli_connect("localhost", "root", "", "NæringsmeglerenDB");
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Henter data fra databasen til dropdowns
