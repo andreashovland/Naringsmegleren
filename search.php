@@ -9,11 +9,12 @@
 
     if(isset($_REQUEST['searchbutton'])){
         $searchValue = $_REQUEST['search'];
-        $con = new mysqli("localhost", "root", "", "NæringsmeglerenDB");
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-        if ($con->connect_error) {
-            echo "Connection failed: " . $con->connect_error;
+        if ($conn->connect_error) {
+            echo "Connection failed: " . $conn->connect_error;
         } else {
+            echo "connection successful"; //test
             $sql = "SELECT firmaNavn, antallAnsatte, kontaktPerson, kommentar, fornavn, status
             FROM firma
             JOIN kontaktinfo
@@ -26,8 +27,10 @@
             ON ansatte.ansattId=firmakommentar.ansattId
             WHERE firmaNavn LIKE '%$searchValue%'";
 
+            echo $sql; //test
 
-            $result = $con->query($sql);
+
+            $result = $conn->query($sql);
             echo "<div class='container'>
             <table>
             <tr>
