@@ -16,7 +16,7 @@
         } else {
             echo "connection successful" . "<br>"; //test
             
-            $sql = "SELECT firmaNavn, antallAnsatte, kontaktPerson, kommentar, fornavn, status
+            $sql = "SELECT firmanavn, antallAnsatte, kontaktperson, kommentar, fornavn, status
             FROM firma
             JOIN kontaktinfo
             ON kontaktinfo.orgNum=firma.orgNum
@@ -26,7 +26,7 @@
             ON status.statusId=firmakommentar.statusId
             JOIN ansatte
             ON ansatte.ansattId=firmakommentar.ansattId
-            WHERE firmaNavn LIKE '%$searchValue%'";
+            WHERE firmanavn LIKE '%$searchValue%'";
 
             echo $sql; //test
 
@@ -48,12 +48,12 @@
             while ($row = $result->fetch_assoc()){
 
                 echo "<tr>
-                <td>" . $row['firmaNavn'] . "</td>
+                <td>" . $row['firmanavn'] . "</td>
                 <td>" . $row['kontaktPerson'] . "</td>
                 <td>" . $row['antallAnsatte'] . "</td> 
                 <td>" . $row['status'] . "</td>
                 <td>" . $row['fornavn'] . "</td>
-                <td>" . $row['kommentarDetalj'] . "</td>
+                <td>" . $row['kommentar'] . "</td>
                 <td><button class='visMer'>Vis mer</button></td>
                 <td><button class='rediger'>Rediger</button></td>
                 </tr></div>";
