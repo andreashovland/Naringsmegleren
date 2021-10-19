@@ -14,7 +14,8 @@
         if ($conn->connect_error) {
             echo "Connection failed: " . $conn->connect_error;
         } else {
-            echo "connection successful"; //test
+            echo "connection successful" . "<br>"; //test
+            
             $sql = "SELECT firmaNavn, antallAnsatte, kontaktPerson, kommentar, fornavn, status
             FROM firma
             JOIN kontaktinfo
