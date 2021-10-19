@@ -16,13 +16,16 @@
     $minAnsatteValue = $_REQUEST['minAnsatte'];
     $maxAnsatteValue = $_REQUEST['maxAnsatte'];
     $adrEndringValue = $_REQUEST['adrEndring'];
-    $minOmsetningValue = $_REQUEST['minOmsetning'];
-    $maxOmsetningValue = $_REQUEST['maxOmsetning'];
+    $minInntektValue = $_REQUEST['minInntekt'];
+    $maxInntektValue = $_REQUEST['maxInntekt'];
     $nextValue = $_REQUEST['next'];
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-
+    if ($conn->connect_error) {
+        echo "Connection failed: " . $conn->connect_error;
+    } else {
+    
     $wherequery = array();
 
         if (!empty($lokasjonValue)) {
@@ -50,15 +53,15 @@
         }
 
         if (!empty($adrEndringValue)){
-            $wherequery[] = "siste_adr_endr <= $adrEndringValue";
+            $wherequery[] = "sisteAdrEndring <= $adrEndringValue";
         }
 
-        if (!empty($minOmsetningValue)){
-            $wherequery[] = "omsetning >= $minOmsetningValue";
+        if (!empty($minInntektValue)){
+            $wherequery[] = "inntekt >= $minInntektValue";
         }
 
-        if (!empty($maxOmsetningValue)){
-            $wherequery[] = "omsetning <= $maxOmsetningValue";
+        if (!empty($maxInntektValue)){
+            $wherequery[] = "inntekt <= $maxInntektValue";
         }
 
         if (!empty($nextValue)){
@@ -70,7 +73,7 @@
             echo "Connection failed: " . $conn->connect_error;
         } else {
 
-        $query = "select firmaNavn, antallAnsatte, kontaktPerson, kommentarDetalj, fornavn, status
+        $query = "select firmanavn, antallAnsatte, kontaktperson, kommentar, fornavn, status
         FROM firma
         JOIN kontaktinfo
         ON kontaktinfo.orgNum=firma.orgNum
@@ -81,7 +84,7 @@
         JOIN ansatte
         ON ansatte.ansattId=firmakommentar.ansattId
         JOIN lokasjon 
-        ON lokasjon.lokasjonId=firma.lokasjonId
+        ON lokasjon.lokasjonid=firma.lokasjonId
         JOIN bransje
         ON bransje.bransjeId=firma.bransjeId where " . join(' and ', $wherequery);
 
@@ -107,12 +110,12 @@
             while ($row = $result->fetch_assoc()){
 
                 echo "<tr>
-                <td>" . $row['firmaNavn'] . "</td>
-                <td>" . $row['kontaktPerson'] . "</td>
+                <td>" . $row['firmanavn'] . "</td>
+                <td>" . $row['kontaktperson'] . "</td>
                 <td>" . $row['antallAnsatte'] . "</td> 
                 <td>" . $row['status'] . "</td>
                 <td>" . $row['fornavn'] . "</td>
-                <td>" . $row['kommentarDetalj'] . "</td>
+                <td>" . $row['kommentar'] . "</td>
                 <td><button class='visMer'>Vis mer</button></td>
                 <td><button class='rediger'>Rediger</button></td>
                 </tr></div>";
@@ -122,7 +125,8 @@
 
             $conn->close();
         }
-        
+    }
+
 ?>
 
 </html>

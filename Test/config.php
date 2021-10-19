@@ -2,5 +2,6 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "Næringsmegleren";
+$dbname = "Næringsmeglerendb";
+
 ?>
