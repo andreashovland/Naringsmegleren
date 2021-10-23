@@ -86,7 +86,7 @@
         JOIN lokasjon 
         ON lokasjon.lokasjonid=firma.lokasjonId
         JOIN bransje
-        ON bransje.bransjeId=firma.bransjeId where " . join(' and ', $wherequery);
+        ON bransje.bransjeId=firma.bransjeId where " . join(' and ', $wherequery) . " order by antallAnsatte DESC";
 
         print_r($wherequery) . "<br>";
         echo $query;

@@ -49,7 +49,7 @@
 
                 echo "<tr>
                 <td>" . $row['firmanavn'] . "</td>
-                <td>" . $row['kontaktPerson'] . "</td>
+                <td>" . $row['kontaktperson'] . "</td>
                 <td>" . $row['antallAnsatte'] . "</td> 
                 <td>" . $row['status'] . "</td>
                 <td>" . $row['fornavn'] . "</td>
