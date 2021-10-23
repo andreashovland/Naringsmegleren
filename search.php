@@ -6,7 +6,7 @@
 <body>
 
 <?php
-
+    include("config.php");
     if(isset($_REQUEST['searchbutton'])){
         $searchValue = $_REQUEST['search'];
         $conn = new mysqli($servername, $username, $password, $dbname);
