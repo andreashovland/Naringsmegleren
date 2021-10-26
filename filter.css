@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: white;
+}
+.filtere{
+    max-width: 400px;
+    width: 100%;
+    height: 600px;
+    background: cadetblue;
+    padding: 25px 30px;
+    border-radius: 7px;
+}
+.filtere .title{
+    font-size: 25px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+}
+.filtere form .filter-knapper{
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    place-items: center;
+    
+}
+.form .filter-knapper .dropdown{
+    width: calc(100% / 2 - 20px);
+}
+.filter-knapper .dropdown select{
+    height: 32px;
+    width: 100%;
+    font-size: 18px;
+}
+.form .filter-knapper .input-box{
+    width: calc(100% / 2 - 20px);
+}
+.filter-knapper .input-box input{
+    height: 32px;
+    width: 100%;
+    font-size: 18px;
+}
+.filter-knapper .input-box label{
+    font-size: 18px;
+}
+.filter-knapper .dropdown label{
+    font-size: 18px;
+}
+.filter-knapper .filtrer input{
+    height: 30px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    
+    
+}
