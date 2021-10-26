@@ -16,7 +16,7 @@
         } else {
             echo "connection successful" . "<br>"; //test
             
-            $sql = "SELECT firmanavn, antallAnsatte, kontaktperson, kommentar, fornavn, status
+            $sql = "SELECT firma.orgNum, firmanavn, antallAnsatte, kontaktperson, kommentar, fornavn, status
             FROM firma
             JOIN kontaktinfo
             ON kontaktinfo.orgNum=firma.orgNum
@@ -35,6 +35,7 @@
             echo "<div class='container'>
             <table>
             <tr>
+            <th>Org.Num</th>
             <th>Firmanavn</th>
             <th>Kontaktperson</th>
             <th>Antall ansatte</th>
@@ -48,14 +49,15 @@
             while ($row = $result->fetch_assoc()){
 
                 echo "<tr>
+                <td>" . $row['orgNum'] . "</td>
                 <td>" . $row['firmanavn'] . "</td>
                 <td>" . $row['kontaktperson'] . "</td>
                 <td>" . $row['antallAnsatte'] . "</td> 
                 <td>" . $row['status'] . "</td>
                 <td>" . $row['fornavn'] . "</td>
                 <td>" . $row['kommentar'] . "</td>
-                <td><button class='visMer'>Vis mer</button></td>
-                <td><button class='rediger'>Rediger</button></td>
+                <td><a href=visMer.php?orgNum=" . $row['orgNum'] . "> Vis mer</a></td>
+                <td><a href=rediger.php?orgNum=" . $row['orgNum'] . "> Rediger</a></td>
                 </tr></div>";
             }
         }
