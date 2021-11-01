@@ -7,7 +7,6 @@
 
 <?php
     include("config.php");
-    $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Henter data fra databasen til dropdowns
     $lokasjonSet = $conn->query("SELECT lokasjon FROM lokasjon");

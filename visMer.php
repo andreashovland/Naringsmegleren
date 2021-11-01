@@ -8,7 +8,6 @@
     <div class="filtere">
 <?php
     include("config.php");
-    $conn = new mysqli($servername, $username, $password, $dbname);
 
     // henter orgnummeret fra valgt firma
     $orgNum = $_GET['orgNum'];
@@ -38,7 +37,7 @@
         "Bransje detalj" => $row['bransjedetalj']
     );
         foreach($array as $x => $value) {
-            echo "<br><b><font color=\"black\">" . $x . "</font>".": </b>" . $value . "</font>";
+            echo "<br><b><font color=\"white\">" . $x .": </b>" . $value . "</font>";
         }
     }
 
@@ -50,7 +49,7 @@
         "Bransje" => $row['bransje']
     );
         foreach($array as $x => $value) {
-            echo "<br><b><font color=\"black\">" . $x . "</font>".": </b>" . $value . "</font>";
+            echo "<br><b><font color=\"white\">" . $x .": </b>" . $value . "</font>";
         }
     } 
     echo "<br>";
@@ -65,7 +64,7 @@
         "E-post" => $row['epost'],
     );
         foreach($array as $x => $value) {
-            echo "<br><b><font color=\"black\">" . $x . "</font>".": </b>" . $value . "</font>";
+            echo "<br><b><font color=\"white\">" . $x .": </b>" . $value . "</font>";
         }
     }
     echo "<br>";
@@ -78,7 +77,7 @@
         "Vår kontaktperson" => $row['fornavn']
     );
         foreach($array as $x => $value) {
-            echo "<br><b><font color=\"black\">" . $x . "</font>".": </b>" . $value . "</font>";
+            echo "<br><b><font color=\"white\">" . $x .": </b>" . $value . "</font>";
         }
     }
 
@@ -90,7 +89,7 @@
         "Status" => $row['status']
     );
         foreach($array as $x => $value) {
-            echo "<br><b><font color=\"black\">" . $x . "</font>".": </b>" . $value . "</font>";
+            echo "<br><b><font color=\"white\">" . $x .": </b>" . $value . "</font>";
         }
     }
 
@@ -102,15 +101,15 @@
         "Kommentar" => $row['kommentar']
     );
         foreach($array as $x => $value) {
-            echo "<br><b><font color=\"black\">" . $x . "</font>".": </b>" . $value . "</font>";
+            echo "<br><b><font color=\"white\">" . $x .": </b>" . $value . "</font>";
         }
     }
             $conn->close();
 
     ?>
-        <div class="redigerknapp">
-            <a href="rediger.php?orgNum=" <?php $orgNum?>>
-                <button>Rediger</button>
+        <div class="tilbake">
+            <a href="index.php">
+                <button>Tilbake</button>
             </a>
         </div>
     </div>
