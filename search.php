@@ -9,12 +9,10 @@
     include("config.php");
     if(isset($_REQUEST['searchbutton'])){
         $searchValue = $_REQUEST['search'];
-        $conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($conn->connect_error) {
             echo "Connection failed: " . $conn->connect_error;
         } else {
-            echo "connection successful" . "<br>"; //test
             
             $sql = "SELECT firma.orgNum, firmanavn, antallAnsatte, kontaktperson, kommentar, fornavn, status
             FROM firma
@@ -28,14 +26,11 @@
             ON ansatte.ansattId=firmakommentar.ansattId
             WHERE firmanavn LIKE '%$searchValue%'";
 
-            echo $sql; //test
-
-
             $result = $conn->query($sql);
             echo "<div class='container'>
             <table>
             <tr>
-            <th>Org.Num</th>
+            <th style='display:none;'>Org.Num</th>
             <th>Firmanavn</th>
             <th>Kontaktperson</th>
             <th>Antall ansatte</th>
@@ -49,7 +44,7 @@
             while ($row = $result->fetch_assoc()){
 
                 echo "<tr>
-                <td>" . $row['orgNum'] . "</td>
+                <td style='display:none;'>" . $row['orgNum'] . "</td>
                 <td>" . $row['firmanavn'] . "</td>
                 <td>" . $row['kontaktperson'] . "</td>
                 <td>" . $row['antallAnsatte'] . "</td> 

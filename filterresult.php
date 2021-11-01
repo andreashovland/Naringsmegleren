@@ -20,8 +20,6 @@
     $maxInntektValue = $_REQUEST['maxInntekt'];
     $nextValue = $_REQUEST['next'];
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
     if ($conn->connect_error) {
         echo "Connection failed: " . $conn->connect_error;
     } else {
@@ -87,11 +85,7 @@
         ON lokasjon.lokasjonid=firma.lokasjonId
         JOIN bransje
         ON bransje.bransjeId=firma.bransjeId where " . join(' and ', $wherequery) . " order by antallAnsatte DESC";
-
-        print_r($wherequery) . "<br>";
-        echo $query;
-
-        
+       
         $result = $conn->query($query);
 
         echo "<div class='container'>
