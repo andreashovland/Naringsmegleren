@@ -2,9 +2,11 @@
 <head>
         <title>Næringsmegleren</title>
         <link rel="stylesheet" href="filter.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
 <body>
 
+<div class="bg"></div>
 <?php
     include("config.php");
 

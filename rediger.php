@@ -2,8 +2,10 @@
 <head>
     <title>Næringsmegleren</title>
     <link rel="stylesheet" href="filter.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="bg"></div>
 <div class="filtere">
 
 <?php
@@ -79,7 +81,7 @@
         if($query_run)
         {   
         mysqli_close($conn); // Close connection
-        header("location:index.php"); // redirects to members page
+        header("location:visMer.php?orgNum=". $orgNum); // redirects to members page
         exit;
 
         }
@@ -90,7 +92,7 @@
 
 <div>
 <form method="post">
-    <div class="box">
+    <div class="box-rediger">
     <br>
 
         <label for="vårKontaktperson">Vår kontaktperson: </label>

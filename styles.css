@@ -1,5 +1,13 @@
-html, body {
-    background: white;
+body {
+    background-color: rgb(223, 223, 223);
+}
+.bg {
+    height: 100%;
+    width: 100%;
+    background: rgb(34, 36, 43);    
+    clip-path: polygon(100% 63%, 100% 0, 0 0, 0 56%);
+    position: absolute;
+    z-index: -1;    
 }
 
 h1{

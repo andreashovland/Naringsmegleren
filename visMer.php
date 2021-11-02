@@ -3,8 +3,10 @@
     <head>
         <title>Næringsmegleren</title>
         <link rel="stylesheet" href="filter.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+    <div class="bg"></div>
     <div class="filtere">
 <?php
     include("config.php");
@@ -108,9 +110,12 @@
 
     ?>
         <div class="tilbake">
-            <a href="index.php">
-                <button>Tilbake</button>
-            </a>
+            <button onclick="goBack()">Tilbake</button>
+            <script>
+                function goBack(){
+                    window.history.back();
+                }
+            </script>
         </div>
     </div>
     

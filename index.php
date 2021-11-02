@@ -5,9 +5,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div class="header">
-            <img src="bilder/logo_senter_hvit.png" class="logo">
-        </div>
+        <div class="bg"></div>
 
         <div class="box">
 
@@ -19,6 +17,7 @@
             <button class="filter">Filter</button>
             </a>
         </div>
+        
     </body>
 </html>
 
