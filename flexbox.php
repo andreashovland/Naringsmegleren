@@ -11,9 +11,10 @@
         <img src="bilder/logo.dark.png" alt="logo-dark" width="15%" height="60%">
     </div>
 
+
     <section class="content">
         <div class="box">
-        <form method="post" id="form1" action="search.php">
+        <form method="post" id="form1" action="searchflex.php">
             <input type="text" name="search" placeholder="Søk">
             <input type="submit" value="Søk" name="searchbutton">
         </form><br>
@@ -25,5 +26,3 @@
     
 </body>
 </html>
-
-
