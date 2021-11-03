@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Næringsmegleren</title>
-        <link rel="stylesheet" href="filter.css">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-    <div class="bg"></div>
-    <div class="filtere">
+<head>
+    <title>Næringsmegleren</title>
+    <link rel="stylesheet" href="css/filter.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="bg"></div>
+
+<div class="filtere">
 <?php
     include("config.php");
 
@@ -110,7 +111,7 @@
 
     ?>
         <div class="tilbake">
-            <button onclick="goBack()">Tilbake</button>
+            <button name="tilbakeVisMer" onclick="goBack()">Tilbake</button>
             <script>
                 function goBack(){
                     window.history.back();

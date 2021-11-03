@@ -28,7 +28,7 @@
             ON status.statusId=firmakommentar.statusId
             JOIN ansatte
             ON ansatte.ansattId=firmakommentar.ansattId
-            WHERE firmanavn LIKE '%$searchValue%' order by antallAnsatte DESC";
+            WHERE firmanavn LIKE '%$searchValue%'";
 
             $result = $conn->query($sql);
             echo "<div class='container'>
