@@ -15,6 +15,7 @@
     $lokasjonSet = $conn->query("SELECT lokasjon FROM lokasjon");
     $statusSet = $conn->query("SELECT status FROM status");
     $bransjeSet = $conn->query("SELECT bransje FROM bransje");
+    $bydelSet = $conn->query("SELECT bydel FROM bydel");
 ?>
 
 
@@ -25,7 +26,7 @@
         <div class="filter-knapper">
         <!-- Område -->
         <div class ="dropdown">
-        <label for="område">Område</label>
+        <label for="område">By</label>
         <select name="område">
             <option></option>
             <?php
@@ -37,10 +38,18 @@
         </select>
         </div>
         
-        <!-- Postnummer -->
-        <div class="input-box">
-        <label for="postnummer">Postnummer</label>
-        <input type="text" name="postnummer">
+        <!-- Bydel -->
+        <div class="dropdown">
+        <label for="bydel">Bydel</label>
+        <select name="bydel">
+            <option></option>
+            <?php
+                while ($rows = $bydelSet->fetch_assoc()){
+                    $bydel = $rows['bydel'];
+                    echo "<option value='$bydel'>$bydel</option>";
+                }
+            ?>
+        </select>
         </div>
         
         <!-- Bransje -->

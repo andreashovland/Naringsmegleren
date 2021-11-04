@@ -15,7 +15,7 @@
     include("config.php");
 
     $lokasjonValue = $_REQUEST['område'];
-    $postnummerValue = $_REQUEST['postnummer'];
+    $bydelValue = $_REQUEST['bydel'];
     $bransjeValue = $_REQUEST['bransje'];
     $statusValue = $_REQUEST['status'];
     $minAnsatteValue = $_REQUEST['minAnsatte'];
@@ -35,8 +35,8 @@
             $wherequery[] = "lokasjon LIKE '%$lokasjonValue%'";
         }
 
-        if (!empty($postnummerValue)) {
-            $wherequery[] = "postnummer = $postnummerValue";
+        if (!empty($bydelValue)) {
+            $wherequery[] = "bydel LIKE '%$bydelValue%'";
         }
 
         if (!empty($bransjeValue)){
@@ -78,6 +78,8 @@
 
         $query = "select firma.orgNum, firmanavn, antallAnsatte, kontaktperson, kommentar, fornavn, status
         FROM firma
+        JOIN bydel
+        ON bydel.bydelId=firma.bydelId
         JOIN kontaktinfo
         ON kontaktinfo.orgNum=firma.orgNum
         JOIN firmakommentar
@@ -91,6 +93,8 @@
         JOIN bransje
         ON bransje.bransjeId=firma.bransjeId where " . join(' and ', $wherequery) . " order by antallAnsatte DESC";
        
+
+        echo $query;
         $result = $conn->query($query);
 
         echo "<div class='container'>
@@ -105,11 +109,13 @@
             <th>Kommentar</th>
             <th></th>
             <th></th>
-            </tr>";
+            </tr>
+            </div>";
 
             while ($row = $result->fetch_assoc()){
 
-                echo "<tr>
+                echo "<div class='container'>
+                <tr>
                 <td>" . $row['orgNum'] . "</td>
                 <td>" . $row['firmanavn'] . "</td>
                 <td>" . $row['kontaktperson'] . "</td>
