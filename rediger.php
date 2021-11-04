@@ -23,6 +23,7 @@
     JOIN firma ON firmakommentar.orgNum=firma.orgNum where firma.orgNum = $orgNum");
     $firmakommentar = mysqli_query($conn,"select * from firmakommentar where orgNum = $orgNum");
 
+    // Plasserer verdiene i en array
 
     while ($rowFirma = mysqli_fetch_array($firma)){
         $array = array(            
@@ -51,39 +52,35 @@
         } 
         echo "<br>";
 
-
-    while ($rowKontaktinfo = mysqli_fetch_array($kontaktinfo)){
-        $array = array(            
-            "Kontaktperson" => $rowKontaktinfo['kontaktperson'],
-            "Telefon" => $rowKontaktinfo['tlf'],
-            "E-post" => $rowKontaktinfo['epost'],
-        );
-            foreach($array as $x => $value) {
-                echo "<br><b><font color=\"white\">" . $x .": </b>" . $value . "</font>";
-            }
-        }
-        echo "<br>";
-
+    // Rediger
+    
+    $rowKontaktinfo = mysqli_fetch_array($kontaktinfo);
     $rowAnsatte = mysqli_fetch_array($ansatte);
     $rowStatus = mysqli_fetch_array($status);
     $rowFirmakommentar = mysqli_fetch_array($firmakommentar);
 
     if(isset($_POST['rediger'])){
 
+        $kontaktpersonPost = $_POST['kontaktperson'];
+        $telefonPost = $_POST['telefon'];
+        $epostPost = $_POST['epost'];
         $vårKontaktperson = $_POST['vårKontaktperson'];
         $statusPost = $_POST['statusPost'];
         $kommentarPost = $_POST['kommentarPost'];
 
         $editKommentar = "UPDATE firmakommentar SET statusId='$statusPost', kommentar='$kommentarPost', ansattId='$vårKontaktperson' WHERE orgNum='$orgNum'";
+        $editKontaktinfo = "UPDATE kontaktinfo SET kontaktperson='$kontaktpersonPost', tlf='$telefonPost', epost='$epostPost' WHERE orgNum='$orgNum'";
         
-        $query_run = mysqli_query($conn, $editKommentar);
+        $query_run_kommentar = mysqli_query($conn, $editKommentar);
+        $query_run_kontaktinfo = mysqli_query($conn, $editKontaktinfo);
 
-        if($query_run)
-        {   
-        mysqli_close($conn); // Close connection
-        header("location:visMer.php?orgNum=". $orgNum); // redirects to members page
-        exit;
+        if($query_run_kommentar){   
+            mysqli_close($conn); // Close connection
+            header("location:visMer.php?orgNum=". $orgNum); // redirects to members page
+            exit;
 
+        } if($query_run_kontaktinfo){
+            mysqli_close($conn); // Close connection
         }
         else {
         }    	
@@ -94,6 +91,14 @@
 <form method="post">
     <div class="box-rediger">
     <br>
+        <label for="kontaktperson">Kontaktperson: </label>
+        <input type="text" name="kontaktperson" value="<?php echo $rowKontaktinfo['kontaktperson']?>"><br>
+
+        <label for="telefon">Telefon: </label>
+        <input type="text" name="telefon" value="<?php echo $rowKontaktinfo['tlf']?>"><br>
+
+        <label for="epost">E-post: </label>
+        <input type="text" name="epost" value="<?php echo $rowKontaktinfo['epost']?>"><br>
 
         <label for="vårKontaktperson">Vår kontaktperson: </label>
         <select name="vårKontaktperson">
@@ -122,7 +127,18 @@
         <textarea rows = "5" cols = "40" name="kommentarPost">
             <?php echo $rowFirmakommentar['kommentar']?>
         </textarea>
+        
         <input type="submit" name="rediger" value="Rediger">
+
+        <div class="tilbake">
+            <button name="tilbakeButton" onclick="goBack()">Tilbake</button>
+            <script>
+                function goBack(){
+                    window.history.back();
+                }
+            </script>
+        </div>
+
 
 
     </div>

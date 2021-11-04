@@ -111,7 +111,7 @@
 
     ?>
         <div class="tilbake">
-            <button name="tilbakeVisMer" onclick="goBack()">Tilbake</button>
+            <button name="tilbakeButton" onclick="goBack()">Tilbake</button>
             <script>
                 function goBack(){
                     window.history.back();
