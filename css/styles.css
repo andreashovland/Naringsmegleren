@@ -40,8 +40,20 @@ h1{
     width: 60%;
     height: 60px;
     font-size:x-large;
-    
 }
+
+.box input[type="password"]{
+    border: 0;
+    background: white;
+    display: block;
+    margin: 6% auto;
+    text-align: center;
+    border-radius: 5px;
+    width: 60%;
+    height: 60px;
+    font-size:x-large;
+}
+
 .box input[type="submit"]{
     border: 0;
     background: #6CBADC;
