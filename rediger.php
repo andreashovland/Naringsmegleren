@@ -60,7 +60,7 @@
     $rowStatus = mysqli_fetch_array($status);
     $rowFirmakommentar = mysqli_fetch_array($firmakommentar);
 
-    if(isset($_POST['rediger'])){
+    if(isset($_POST['redigerknapp'])){
 
         $kontaktpersonPost = $_POST['kontaktperson'];
         $telefonPost = $_POST['telefon'];
