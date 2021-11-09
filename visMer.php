@@ -8,7 +8,8 @@
 <body>
 <div class="bg"></div>
 
-<div class="filtere">
+<div class="visMer">
+    
 <?php
     include("config.php");
 

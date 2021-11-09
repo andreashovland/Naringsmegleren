@@ -11,12 +11,24 @@ body{
     padding: 10px;
 }
 .filtere{
+    max-width: 500px;
+    width: 100%;
+    height: 800px;
+    background: rgb(108, 140, 200);
+    padding: 25px 30px;
+    border-radius: 7px;
+}
+.visMer{
     max-width: 400px;
     width: 100%;
     height: 600px;
-    background: #DC706C;
+    background: rgb(108, 140, 200);
     padding: 25px 30px;
     border-radius: 7px;
+    margin-top: 7%;
+}
+.farge{
+    background: #DC706C;
 }
 .filtere .title{
     font-size: 25px;
@@ -61,3 +73,72 @@ body{
     align-items: center;
     margin-top: 10px;   
 }
+
+/* Rediger skjema */
+.innhold{
+    font-size: 20px;
+    color: white;
+}
+.box-rediger input[name="kontaktperson"]{
+    width: 60%;
+    height: 26px;
+    font-size: 18px;
+    margin: 10px;
+}
+.box-rediger input[name="telefon"]{
+    width: 30%;
+    height: 26px;
+    font-size: 18px;
+}
+.box-rediger input[name="epost"]{
+    width: 70%;
+    height: 26px;
+    font-size: 18px;
+    margin: 10px;
+}
+.box-rediger select[name="vårKontaktperson"]{
+    width: 30%;
+    height: 26px;
+    font-size: 18px;
+}
+.box-rediger select[name="statusPost"]{
+    width: 40%;
+    height: 26px;
+    font-size: 18px;
+    margin: 10px;
+}
+.box-rediger textarea[name="kommentarPost"]{
+    width: 100%;
+    height: 100px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.tilbake button{
+    background-color: #DC706C;
+    border: none;
+    border-radius: 4px;
+    width: 30%;
+    height: 40px;
+    color: white;
+    margin-top: 10px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    font-size: 20px;
+    font-weight: 550;
+    cursor: pointer;
+}
+.box-rediger input[type="submit"]{
+    background-color: rgb(47, 46, 121);
+    border: none;
+    border-radius: 4px;
+    width: 30%;
+    height: 40px;
+    color: white;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    font-size: 20px;
+    font-weight: 550;
+    cursor: pointer;
+}
+

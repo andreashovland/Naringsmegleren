@@ -15,11 +15,11 @@
     $lokasjonSet = $conn->query("SELECT lokasjon FROM lokasjon");
     $statusSet = $conn->query("SELECT status FROM status");
     $bransjeSet = $conn->query("SELECT bransje FROM bransje");
-    $bydelSet = $conn->query("SELECT bydel FROM bydel");
+    $bydelSet = $conn->query("SELECT bydel FROM bydel ORDER BY bydel ASC");
 ?>
 
 
-<div class="filtere">
+<div class="filtere farge">
     <div class="title">Filtrer søk</div>
         <form method="post" action="filterresult.php">
 

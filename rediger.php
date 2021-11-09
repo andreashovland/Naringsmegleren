@@ -6,8 +6,9 @@
 </head>
 <body>
 <div class="bg"></div>
-<div class="filtere">
 
+<div class="filtere">
+<div class="innhold">
 <?php
     include("config.php");
 
@@ -103,8 +104,14 @@
         <label for="vårKontaktperson">Vår kontaktperson: </label>
         <select name="vårKontaktperson">
             <option></option>
-            <option value="1" <?php if($rowFirmakommentar['ansattId']==1) echo 'selected="selected"'; ?>>Unni</option>
             <option value="2" <?php if($rowFirmakommentar['ansattId']==2) echo 'selected="selected"'; ?>>-</option>
+            <option value="6" <?php if($rowFirmakommentar['ansattId']==6) echo 'selected="selected"'; ?>>Gunnar</option>
+            <option value="3" <?php if($rowFirmakommentar['ansattId']==3) echo 'selected="selected"'; ?>>Jens Helge</option>
+            <option value="5" <?php if($rowFirmakommentar['ansattId']==5) echo 'selected="selected"'; ?>>Line Ericha</option>
+            <option value="4" <?php if($rowFirmakommentar['ansattId']==4) echo 'selected="selected"'; ?>>Mikael</option>
+            <option value="7" <?php if($rowFirmakommentar['ansattId']==7) echo 'selected="selected"'; ?>>Sylvi</option>
+            <option value="1" <?php if($rowFirmakommentar['ansattId']==1) echo 'selected="selected"'; ?>>Unni</option>
+
         </select><br>
 
         <label for="statusPost">Status: </label>
@@ -123,12 +130,12 @@
             <option value="11" <?php if($rowFirmakommentar['statusId']==11) echo 'selected="selected"'; ?>>-</option>
         </select><br>
 
-        <label for="kommentarPost">Kommentar: </label>
-        <textarea rows = "5" cols = "40" name="kommentarPost">
+        Kommentar:<br>
+        <textarea name="kommentarPost" placeholder="Kommentar...">
             <?php echo $rowFirmakommentar['kommentar']?>
         </textarea>
         
-        <input type="submit" name="rediger" value="Rediger">
+        <input type="submit" name="redigerknapp" value="Rediger">
 
         <div class="tilbake">
             <button name="tilbakeButton" onclick="goBack()">Tilbake</button>
@@ -143,6 +150,7 @@
 
     </div>
 </form>
+</div>
 </div>
 </div>
     
