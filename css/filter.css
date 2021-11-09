@@ -11,33 +11,40 @@ body{
     padding: 10px;
 }
 .filtere{
+    position: absolute;
     max-width: 500px;
     width: 100%;
     height: 800px;
     background: rgb(108, 140, 200);
     padding: 25px 30px;
     border-radius: 7px;
+    color: white;
 }
-.visMer{
-    max-width: 400px;
-    width: 100%;
-    height: 600px;
-    background: rgb(108, 140, 200);
-    padding: 25px 30px;
-    border-radius: 7px;
-    margin-top: 7%;
-}
-.farge{
-    background: #DC706C;
-}
-.filtere .title{
+.filtere header{
     font-size: 25px;
     font-weight: 500;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+.visMer{
+    max-width: 500px;
+    width: 100%;
+    height: 700px;
+    background: rgb(108, 140, 200);
+    padding: 25px 30px;
+    border-radius: 7px;
+    margin-top: 7%;
+    font-size: 20px;
+}
+.farge{
+    background: #DC706C;
+}
+.farge label{
+    margin-top: 10px;
 }
 .filtere form .filter-knapper{
-    display: grid;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     place-items: center;
@@ -50,6 +57,7 @@ body{
     height: 32px;
     width: 100%;
     font-size: 18px;
+    margin-top: 10px;
 }
 .form .filter-knapper .input-box{
     width: calc(100% / 2 - 20px);

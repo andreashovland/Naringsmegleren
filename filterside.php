@@ -12,15 +12,15 @@
     include("config.php");
 
     // Henter data fra databasen til dropdowns
-    $lokasjonSet = $conn->query("SELECT lokasjon FROM lokasjon");
-    $statusSet = $conn->query("SELECT status FROM status");
-    $bransjeSet = $conn->query("SELECT bransje FROM bransje");
+    $lokasjonSet = $conn->query("SELECT lokasjon FROM lokasjon ORDER BY lokasjon ASC");
+    $statusSet = $conn->query("SELECT status FROM status ORDER BY status ASC");
+    $bransjeSet = $conn->query("SELECT bransje FROM bransje ORDER BY bransje ASC");
     $bydelSet = $conn->query("SELECT bydel FROM bydel ORDER BY bydel ASC");
 ?>
 
 
 <div class="filtere farge">
-    <div class="title">Filtrer søk</div>
+    <header> Filtrer søk</header><br><br>
         <form method="post" action="filterresult.php">
 
         <div class="filter-knapper">
