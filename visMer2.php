@@ -115,7 +115,7 @@
             <button name="tilbakeButton" onclick="goBack()">Tilbake</button>
             <script>
                 function goBack(){
-                    window.history.go(-1);
+                    window.history.go(-2);
                 }
             </script>
         </div>

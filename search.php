@@ -55,8 +55,8 @@
                 <td>" . $row['status'] . "</td>
                 <td>" . $row['fornavn'] . "</td>
                 <td>" . $row['kommentar'] . "</td>
-                <td><a href=visMer.php?orgNum=" . $row['orgNum'] . "> Vis mer</a></td>
-                <td><a href=rediger.php?orgNum=" . $row['orgNum'] . "> Rediger</a></td>
+                <td><button name='showMore'><a href=visMer.php?orgNum=" . $row['orgNum'] . " style='text-decoration: none;'> Vis mer</a></button></td>
+                <td><button name='edit'><a href=rediger.php?orgNum=" . $row['orgNum'] . " style='text-decoration: none;'> Rediger</a></button></td>
                 </tr></div>";
             }
         }
