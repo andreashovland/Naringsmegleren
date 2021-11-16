@@ -1,27 +1,29 @@
 <?php
-
+/*
 session_start();
 
 if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
     header("Location: login.php");
     exit();
 }
-
+*/
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Næringsmegleren</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/header.css">
 </head>
+
 <body>
-<div class="bg"></div>
-<div class="header">
-    <img src="bilder/logo.dark.png" alt="logo-dark" width="15%" height="60%">
-</div>
-<?php
+    <div class="bg"></div>
+    <div class="header">
+        <a href="index.php"><img src="bilder/logo.dark.png" alt="logo-dark" width="15%" height="60%"></a>
+    </div>
+    <?php
 
     include("config.php");
 
@@ -39,8 +41,8 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
     if ($conn->connect_error) {
         echo "Connection failed: " . $conn->connect_error;
     } else {
-    
-    $wherequery = array();
+
+        $wherequery = array();
 
         if (!empty($lokasjonValue)) {
             $wherequery[] = "lokasjon LIKE '%$lokasjonValue%'";
@@ -50,35 +52,35 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
             $wherequery[] = "bydel LIKE '%$bydelValue%'";
         }
 
-        if (!empty($bransjeValue)){
+        if (!empty($bransjeValue)) {
             $wherequery[] = "bransje LIKE '%$bransjeValue%'";
         }
 
-        if (!empty($statusValue)){
+        if (!empty($statusValue)) {
             $wherequery[] = "status LIKE '%$statusValue%'";
         }
 
-        if (!empty($minAnsatteValue)){
+        if (!empty($minAnsatteValue)) {
             $wherequery[] = "antallAnsatte >= $minAnsatteValue";
         }
 
-        if (!empty($maxAnsatteValue)){
+        if (!empty($maxAnsatteValue)) {
             $wherequery[] = "antallAnsatte <= $maxAnsatteValue";
         }
 
-        if (!empty($adrEndringValue)){
+        if (!empty($adrEndringValue)) {
             $wherequery[] = "sisteAdrEndring <= $adrEndringValue";
         }
 
-        if (!empty($minInntektValue)){
+        if (!empty($minInntektValue)) {
             $wherequery[] = "inntekt >= $minInntektValue";
         }
 
-        if (!empty($maxInntektValue)){
+        if (!empty($maxInntektValue)) {
             $wherequery[] = "inntekt <= $maxInntektValue";
         }
 
-        if (!empty($nextValue)){
+        if (!empty($nextValue)) {
             $wherequery[] = "next LIKE '%$nextValue%'";
         }
 
@@ -87,7 +89,7 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
             echo "Connection failed: " . $conn->connect_error;
         } else {
 
-        $query = "select firma.orgNum, firmanavn, antallAnsatte, kontaktperson, kommentar, fornavn, status
+            $query = "select firma.orgNum, firmanavn, antallAnsatte, kontaktperson, kommentar, fornavn, status
         FROM firma
         JOIN bydel
         ON bydel.bydelId=firma.bydelId
@@ -103,12 +105,12 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
         ON lokasjon.lokasjonid=firma.lokasjonId
         JOIN bransje
         ON bransje.bransjeId=firma.bransjeId where " . join(' and ', $wherequery) . " order by antallAnsatte DESC";
-       
 
-        echo $query;
-        $result = $conn->query($query);
 
-        echo "<div class='container'>
+            echo $query;
+            $result = $conn->query($query);
+
+            echo "<div class='container'>
             <table>
             <tr>
             <th>Org.num</th>
@@ -123,7 +125,7 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
             </tr>
             </div>";
 
-            while ($row = $result->fetch_assoc()){
+            while ($row = $result->fetch_assoc()) {
 
                 echo "<div class='container'>
                 <tr>
@@ -145,6 +147,7 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
         }
     }
 
-?>
-    </body>
+    ?>
+</body>
+
 </html>
