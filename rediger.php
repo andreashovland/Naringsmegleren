@@ -88,7 +88,7 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
 
         if($query_run_kommentar){   
             mysqli_close($conn); // Close connection
-            header("location:visMer.php?orgNum=". $orgNum); // redirects to members page
+            header("location:visMer2.php?orgNum=". $orgNum); // redirects to members page
             exit;
 
         } if($query_run_kontaktinfo){
@@ -152,7 +152,7 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
             <button name="tilbakeButton" onclick="goBack()">Tilbake</button>
             <script>
                 function goBack(){
-                    window.history.back();
+                    window.history.go(-1);
                 }
             </script>
         </div>
