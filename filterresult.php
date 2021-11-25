@@ -21,7 +21,7 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
 <body>
     <div class="bg"></div>
     <div class="header">
-        <a href="index.php"><img src="bilder/logo.dark.png" alt="logo-dark" width="15%" height="60%"></a>
+        <img src="bilder/logo.dark.png" alt="logo-dark" width="15%" height="60%">
     </div>
     <?php
 

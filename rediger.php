@@ -158,10 +158,6 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
                         
                         <input type="submit" name="redigerknapp" value="Rediger">
 
-                    
-
-
-
                     </div>
                 </form>
             </div>
