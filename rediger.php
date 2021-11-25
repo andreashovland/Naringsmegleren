@@ -80,9 +80,10 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
                 $epostPost = $_POST['epost'];
                 $vårKontaktperson = $_POST['vårKontaktperson'];
                 $statusPost = $_POST['statusPost'];
+                $nextPost = $_POST['next'];
                 $kommentarPost = $_POST['kommentarPost'];
 
-                $editKommentar = "UPDATE firmakommentar SET statusId='$statusPost', kommentar='$kommentarPost', ansattId='$vårKontaktperson' WHERE orgNum='$orgNum'";
+                $editKommentar = "UPDATE firmakommentar SET statusId='$statusPost', kommentar='$kommentarPost', ansattId='$vårKontaktperson', next='$nextPost' WHERE orgNum='$orgNum'";
                 $editKontaktinfo = "UPDATE kontaktinfo SET kontaktperson='$kontaktpersonPost', tlf='$telefonPost', epost='$epostPost' WHERE orgNum='$orgNum'";
 
                 $query_run_kommentar = mysqli_query($conn, $editKommentar);
@@ -142,21 +143,22 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
                             <option value="11" <?php if ($rowFirmakommentar['statusId'] == 11) echo 'selected="selected"'; ?>>-</option>
                         </select><br>
 
+                        <label for="next">Next? </label>
+                        <select name="next">
+                            <option></option>
+                            <option value="-" <?php if ($rowFirmakommentar['next'] == "-") echo 'selected="selected"'; ?>>-</option>
+                            <option value="Ja" <?php if ($rowFirmakommentar['next'] == "Ja") echo 'selected="selected"'; ?>>Ja</option>
+                            <option value="Nei" <?php if ($rowFirmakommentar['next'] == "Nei") echo 'selected="selected"'; ?>>Nei</option>
+                        </select><br>
+
                         Kommentar:<br>
                         <textarea name="kommentarPost" placeholder="Kommentar...">
-            <?php echo $rowFirmakommentar['kommentar'] ?>
-        </textarea>
-
+                            <?php echo $rowFirmakommentar['kommentar'] ?>
+                        </textarea>
+                        
                         <input type="submit" name="redigerknapp" value="Rediger">
 
-                        <div class="tilbake">
-                            <button name="tilbakeButton" onclick="goBack()">Tilbake</button>
-                            <script>
-                                function goBack() {
-                                    window.history.go(-1);
-                                }
-                            </script>
-                        </div>
+                    
 
 
 

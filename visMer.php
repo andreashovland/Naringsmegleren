@@ -115,6 +115,7 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
 
         while ($row = $firmakommentarResult->fetch_assoc()) {
             $array = array(
+                "Next" => $row['next'],
                 "Kommentar" => $row['kommentar']
             );
             foreach ($array as $x => $value) {

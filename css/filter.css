@@ -121,6 +121,12 @@ body{
     font-size: 18px;
     margin-top: 10px;
 }
+.box-rediger select[name="next"]{
+    width: 30%;
+    height: 26px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
 .tilbake button{
     background-color: #DC706C;
     border: none;
