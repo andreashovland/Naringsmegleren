@@ -38,14 +38,12 @@ body{
     font-size: 20px;
 }
 .farge{
-    background: #DC706C;
+    background: RGB( 96,51,72);
 }
 .farge label{
     margin-top: 10px;
 }
 .filtere form .filter-knapper{
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     place-items: center;
     
@@ -128,7 +126,7 @@ body{
     margin-bottom: 10px;
 }
 .tilbake button{
-    background-color: #DC706C;
+    background-color: rgb(47, 46, 121);
     border: none;
     border-radius: 4px;
     width: 30%;
@@ -155,4 +153,5 @@ body{
     font-weight: 550;
     cursor: pointer;
 }
+
 

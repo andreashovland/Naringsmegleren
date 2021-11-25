@@ -20,7 +20,7 @@ if($_SESSION["verified"] != true || !isset($_SESSION["verified"])) {
 <body>
     <div class="bg"></div>
     <div class="header">
-        ><img src="bilder/logo.dark.png" alt="logo-dark" width="15%" height="60%">
+        <img src="bilder/logo.dark.png" alt="logo-dark" width="15%" height="60%">
     </div>
     <?php
     include("config.php");
